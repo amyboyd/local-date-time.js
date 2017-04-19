@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+# Call `bin/test --watch` to watch test files for changes.
+
+node_modules/.bin/webpack --output-library-target commonjs2 --output-filename test-bundle.js
+node_modules/.bin/mocha tests/ $*
+exit $?

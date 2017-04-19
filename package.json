@@ -1,0 +1,23 @@
+{
+  "name": "local-date-time",
+  "version": "0.0.4",
+  "dependencies": {},
+  "devDependencies": {
+    "babel-core": "^6.24.1",
+    "babel-loader": "^6.4.1",
+    "babel-preset-env": "^1.4.0",
+    "chai": "^3.5.0",
+    "mocha": "^3.2.0",
+    "webpack": "^2.4.1"
+  },
+  "scripts": {
+    "test": "bin/test",
+    "test-watch": "bin/test --watch",
+    "prepublish": "bin/test && bin/build-for-browser && echo 'Waiting 5 seconds to give you a chance to stop!' && sleep 5"
+  },
+  "author": "Amy Boyd <amy@citymunchapp.com>",
+  "engines": {
+    "node": ">=6.0.0",
+    "npm": ">=3.0.0"
+  }
+}
