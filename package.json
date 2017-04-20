@@ -1,6 +1,6 @@
 {
   "name": "local-date-time",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "dependencies": {},
   "devDependencies": {
     "babel-core": "^6.24.1",
@@ -13,8 +13,9 @@
   "scripts": {
     "test": "bin/test",
     "test-watch": "bin/test --watch",
-    "prepublish": "bin/test && bin/build-for-browser && echo 'Waiting 5 seconds to give you a chance to stop!' && sleep 5"
+    "prepublish": "bin/test && bin/build && echo 'Waiting 5 seconds to give you a chance to stop!' && sleep 5"
   },
+  "main": "dist/local-date-time.commonjs2.js",
   "author": "Amy Boyd <amy@citymunchapp.com>",
   "engines": {
     "node": ">=6.0.0",

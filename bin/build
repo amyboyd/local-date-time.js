@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+set -o nounset
+set -o errexit
+
+node_modules/.bin/webpack --output-library-target window --output-filename local-date-time.browser-min.js
+node_modules/.bin/webpack --output-library-target commonjs2 --output-filename local-date-time.commonjs2.js
