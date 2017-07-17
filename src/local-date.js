@@ -174,6 +174,9 @@ LocalDate.prototype.isAnyDayName = function(days) {
     return days.indexOf(this.getDayOfWeek()) !== -1;
 };
 
+/**
+ * @return {Date}
+ */
 LocalDate.prototype.getDateClone = function() {
     return new Date(this.getNativeDateLazily().getTime());
 };

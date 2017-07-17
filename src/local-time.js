@@ -111,6 +111,9 @@ LocalTime.prototype.isAfter = function(other) {
     return this.toNumber() > other.toNumber();
 };
 
+/**
+ * @return {Number} E.g. 2230 for 10:30pm, or 900 for 9am.
+ */
 LocalTime.prototype.toNumber = function() {
     return parseInt(this.timeString.replace(':', ''), 10);
 };
@@ -169,7 +172,7 @@ LocalTime.prototype.goToEndOfHour = function() {
 };
 
 /**
- * @return {LocalTime}
+ * @return {Number}
  */
 LocalTime.prototype.getDifferenceInMinutes = function(other) {
     ensureIsLocalTime(other);
