@@ -104,10 +104,12 @@ LocalTime.prototype.isSameHour = function(other) {
 };
 
 LocalTime.prototype.isBefore = function(other) {
+    ensureIsLocalTime(other);
     return this.toNumber() < other.toNumber();
 };
 
 LocalTime.prototype.isAfter = function(other) {
+    ensureIsLocalTime(other);
     return this.toNumber() > other.toNumber();
 };
 

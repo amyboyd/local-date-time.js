@@ -102,6 +102,11 @@ describe('LocalTime', function() {
             expect(time1.isSame(time2)).to.equal(true);
             expect(time1.isSame(time3)).to.equal(false);
         });
+
+        it('should throw if given anything other than a LocalTime', function() {
+            const time = new LocalTime('10:15');
+            expect(() => time.isSame('asd')).to.throw();
+        });
     });
 
     describe('isSameHour()', function() {
@@ -112,6 +117,26 @@ describe('LocalTime', function() {
 
             expect(time1.isSameHour(time2)).to.equal(true);
             expect(time1.isSameHour(time3)).to.equal(false);
+        });
+    });
+
+    describe('isAfter()', function() {
+        it('should return a boolean', function() {
+            const time1 = new LocalTime('10:15');
+            const time2 = new LocalTime('10:15');
+            const time3 = new LocalTime('11:30');
+
+            expect(time1.isAfter(time2)).to.equal(false);
+            expect(time1.isAfter(time3)).to.equal(false);
+            expect(time3.isAfter(time2)).to.equal(true);
+        });
+
+        it('should throw if given anything other than a LocalTime', function() {
+            const time = new LocalTime('10:15');
+            expect(() => time.isAfter('asd')).to.throw();
+            expect(() => time.isAfter(1)).to.throw();
+            expect(() => time.isAfter()).to.throw();
+            expect(() => time.isAfter(null)).to.throw();
         });
     });
 
@@ -130,6 +155,14 @@ describe('LocalTime', function() {
             expect(time3.isBefore(time2)).to.equal(false);
 
             expect(time2.isBefore(time2)).to.equal(false);
+        });
+
+        it('should throw if given anything other than a LocalTime', function() {
+            const time = new LocalTime('10:15');
+            expect(() => time.isBefore('asd')).to.throw();
+            expect(() => time.isBefore(1)).to.throw();
+            expect(() => time.isBefore()).to.throw();
+            expect(() => time.isBefore(null)).to.throw();
         });
     });
 
