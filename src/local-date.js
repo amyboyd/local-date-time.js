@@ -181,6 +181,27 @@ LocalDate.prototype.getDateClone = function() {
     return new Date(this.getNativeDateLazily().getTime());
 };
 
+/**
+ * A year is a leap year if it is divisible by four without remainder.
+ * However, years divisible by 100 are not leap years, with the exception of years divisible by 400 which are.
+ *
+ * @return {Boolean} True if the date is in a leap year.
+ */
+LocalDate.prototype.isLeapYear = function() {
+    let year = this.getYear();
+    if (year % 4 === 0) {
+        if (year % 400 === 0) {
+            return true;
+        }
+        if (year % 100 === 0) {
+            console.log('x');
+            return false;
+        }
+        return true;
+    }
+    return false;
+};
+
 LocalDate.today = function() {
     return LocalDate.of(new Date());
 };

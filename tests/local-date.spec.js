@@ -78,4 +78,37 @@ describe('LocalDate', function() {
             expect(new LocalDate('2016-09-07').isAnyDayName([])).to.equal(false);
         });
     });
+
+    describe('isLeapYear', function() {
+        function expectTrue(date) {
+            expectBoolean(date, true);
+        }
+
+        function expectFalse(date) {
+            expectBoolean(date, false);
+        }
+
+        function expectBoolean(date, expected) {
+            expect(new LocalDate(date).isLeapYear()).to.equal(expected);
+        }
+
+        it('should return false for years not divisible by 4', function() {
+            expectFalse('2017-01-01');
+        });
+
+        it('should return false for years divisible by 4 and 100', function() {
+            expectFalse('1900-01-01');
+        });
+
+        it('should return true for years divisible by 4 and not 100', function() {
+            expectTrue('2012-01-01');
+            expectTrue('2016-01-01');
+            expectTrue('2020-01-01');
+        });
+
+        it('should return true for years divisible by 4 and 400', function() {
+            expectTrue('2000-01-01');
+            expectTrue('2400-01-01');
+        });
+    });
 });
