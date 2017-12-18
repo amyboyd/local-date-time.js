@@ -202,6 +202,21 @@ LocalDate.prototype.isLeapYear = function() {
     return false;
 };
 
+LocalDate.prototype.lengthOfMonth = function() {
+    let month = this.getMonth();
+    switch (month) {
+        case 2:
+            return (this.isLeapYear() ? 29 : 28);
+        case 4:
+        case 6:
+        case 9:
+        case 11:
+            return 30;
+        default:
+            return 31;
+    }
+};
+
 LocalDate.today = function() {
     return LocalDate.of(new Date());
 };

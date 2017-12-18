@@ -111,4 +111,35 @@ describe('LocalDate', function() {
             expectTrue('2400-01-01');
         });
     });
+
+    describe('lengthOfMonth', function() {
+        function expectLength(date, expected) {
+            expect(new LocalDate(date).lengthOfMonth()).to.equal(expected);
+        }
+
+        it('should return 29 for February in leap years', function() {
+            expectLength('2016-02-15', 29);
+        });
+
+        it('should return 28 for February in non-leap years', function() {
+            expectLength('2017-02-15', 28);
+        });
+
+        it('should return 30 for some months', function() {
+            expectLength('2017-04-15', 30);
+            expectLength('2017-06-15', 30);
+            expectLength('2017-09-15', 30);
+            expectLength('2017-11-15', 30);
+        });
+
+        it('should return 31 for some months', function() {
+            expectLength('2017-01-15', 31);
+            expectLength('2017-03-15', 31);
+            expectLength('2017-05-15', 31);
+            expectLength('2017-07-15', 31);
+            expectLength('2017-08-15', 31);
+            expectLength('2017-10-15', 31);
+            expectLength('2017-12-15', 31);
+        });
+    });
 });
