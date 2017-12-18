@@ -1,0 +1,27 @@
+{
+  "-W097": false,
+  "bitwise": true,
+  "camelcase": true,
+  "curly": true,
+  "eqeqeq": true,
+  "esversion": 6,
+  "expr": true,
+  "freeze": true,
+  "immed": true,
+  "indent": 4,
+  "latedef": "nofunc",
+  "newcap": true,
+  "noarg": true,
+  "quotmark": true,
+  "regexp": true,
+  "smarttabs": true,
+  "sub": true,
+  "trailing": true,
+  "undef": true,
+  "unused": "strict",
+  "mocha": true,
+  "globals": {
+    "require": false
+  }
+}
+

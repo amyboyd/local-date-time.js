@@ -7,5 +7,5 @@ function padLeft(str, length, padChar) {
 }
 
 export {
-    padLeft,
+    padLeft
 };

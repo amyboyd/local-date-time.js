@@ -3,5 +3,5 @@ import LocalDate from './local-date';
 
 export {
     LocalTime,
-    LocalDate,
+    LocalDate
 };

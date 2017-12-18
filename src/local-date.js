@@ -194,7 +194,6 @@ LocalDate.prototype.isLeapYear = function() {
             return true;
         }
         if (year % 100 === 0) {
-            console.log('x');
             return false;
         }
         return true;
