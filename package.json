@@ -12,12 +12,12 @@
     "webpack": "^2.4.1"
   },
   "scripts": {
-    "test": "bin/test",
-    "test-watch": "bin/test --watch",
-    "prepublish": "bin/test && bin/build && echo 'Waiting 5 seconds to give you a chance to stop!' && sleep 5"
+    "test": "bin/build && bin/test",
+    "test-watch": "bin/build && bin/test --watch",
+    "prepublish": "bin/build && bin/test && bin/build && echo 'Waiting 5 seconds to give you a chance to stop!' && sleep 5"
   },
   "main": "dist/local-date-time.commonjs2.js",
-  "author": "Amy Boyd <amy@citymunchapp.com>",
+  "author": "Amy Boyd <amy@amyboyd.co.uk>",
   "engines": {
     "node": ">=6.0.0",
     "npm": ">=3.0.0"
