@@ -24,6 +24,8 @@ LocalTime.prototype.toDateObject = function() {
     const date = new Date();
     date.setHours(parts[0]);
     date.setMinutes(parts[1]);
+    date.setSeconds(0);
+    date.setMilliseconds(0);
     return date;
 };
 

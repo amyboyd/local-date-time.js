@@ -10,6 +10,8 @@ describe('LocalTime', function() {
 
             expect(result.getHours()).to.equal(12);
             expect(result.getMinutes()).to.equal(5);
+            expect(result.getSeconds()).to.equal(0);
+            expect(result.getMilliseconds()).to.equal(0);
         });
     });
 
