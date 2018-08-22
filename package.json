@@ -1,6 +1,6 @@
 {
   "name": "local-date-time",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "dependencies": {},
   "devDependencies": {
     "babel-core": "^6.24.1",
