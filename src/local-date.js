@@ -33,7 +33,7 @@ function ensureIsLocalDate(date) {
  */
 function LocalDate(dateString) {
     if (typeof dateString !== 'string' || dateString.length !== 10) {
-        throw new Error('Invalid date given, should be a string, is: ' + dateString);
+        throw new Error('Invalid date given, should be a 10-character string, is: ' + dateString);
     }
     this.dateString = dateString;
     this.lazyNativeDate = undefined;
@@ -221,12 +221,39 @@ LocalDate.today = function() {
 };
 
 LocalDate.of = (date) => {
+    if (date === null) {
+        throw new Error('Cannot create a LocalDate from null');
+    }
+    if (date === undefined) {
+        throw new Error('Cannot create a LocalDate from undefined');
+    }
+
     if (date instanceof LocalDate) {
         return date;
     }
 
     if (typeof date === 'string') {
         return new LocalDate(date);
+    }
+
+    if (typeof date === 'object' && typeof date.year === 'string' && typeof date.month === 'string' && typeof date.day === 'string') {
+        return new LocalDate(
+            date.year +
+            '-' +
+            padLeft(date.month, 2, '0') +
+            '-' +
+            padLeft(date.day, 2, '0')
+        );
+    }
+
+    if (typeof date === 'object' && typeof date.year === 'number' && typeof date.month === 'number' && typeof date.day === 'number') {
+        return new LocalDate(
+            String(date.year) +
+            '-' +
+            padLeft(String(date.month), 2, '0') +
+            '-' +
+            padLeft(String(date.day), 2, '0')
+        );
     }
 
     // Ensure the object is a date or a mock date. Can't check `date.constructor.name === 'Date'`

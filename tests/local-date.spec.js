@@ -142,4 +142,48 @@ describe('LocalDate', function() {
             expectLength('2017-12-15', 31);
         });
     });
+
+    describe('of()', function() {
+        function expectResult(input, expected) {
+            const result = LocalDate.of(input);
+
+            expect(result.constructor).to.equal(LocalDate);
+            expect(result.toString()).to.equal(expected);
+        }
+
+        function expectToThrow(input, expectedError) {
+            expect(() => LocalDate.of(input)).to.throw(expectedError);
+        }
+
+        it('given an object with the keys "year", "month" and "day" as strings', function() {
+            expectResult({year: '2018', month: '5', day: '8'}, '2018-05-08');
+            expectResult({year: '2018', month: '12', day: '25'}, '2018-12-25');
+        });
+
+        it('given an object with the keys "year", "month" and "day" as numbers', function() {
+            expectResult({year: 2018, month: 5, day: 8}, '2018-05-08');
+            expectResult({year: 2018, month: 12, day: 25}, '2018-12-25');
+        });
+
+        it('given an Date object', function() {
+            expectResult(new Date(2018, 4, 23), '2018-05-23');
+        });
+
+        it('given an existing LocalDate object should return the same object', function() {
+            expectResult(LocalDate.of('2018-05-23'), '2018-05-23');
+        });
+
+        it('given a string', function() {
+            expectResult('2018-05-23', '2018-05-23');
+        });
+
+        it('should throw for invalid values', function() {
+            expectToThrow('2018', 'Invalid date given, should be a 10-character string, is: 2018');
+            expectToThrow(2018, 'Invalid date given, should be a Date object, is: 2018, type: number, constructor: Number');
+            expectToThrow({}, 'Invalid date given, should be a Date object, is: [object Object], type: object, constructor: Object');
+            expectToThrow([], 'Invalid date given, should be a Date object, is: , type: object, constructor: Array');
+            expectToThrow(null, 'Cannot create a LocalDate from null');
+            expectToThrow(undefined, 'Cannot create a LocalDate from undefined');
+        });
+    });
 });
