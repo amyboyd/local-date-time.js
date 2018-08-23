@@ -34,9 +34,18 @@ describe('LocalTime', function() {
         });
     });
 
-    describe('of() given an object', function() {
+    describe('of() given an object with "hours" and "minutes" as numbers', function() {
         it('should return a LocalTime object', function() {
             const result = LocalTime.of({hours: 9, minutes: 5});
+
+            expect(result.constructor).to.equal(LocalTime);
+            expect(result.toString()).to.equal('09:05');
+        });
+    });
+
+    describe('of() given an object with "hours" and "minutes" as strings', function() {
+        it('should return a LocalTime object', function() {
+            const result = LocalTime.of({hours: '9', minutes: '5'});
 
             expect(result.constructor).to.equal(LocalTime);
             expect(result.toString()).to.equal('09:05');
