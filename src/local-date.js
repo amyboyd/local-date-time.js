@@ -220,6 +220,15 @@ LocalDate.today = function() {
     return LocalDate.of(new Date());
 };
 
+/**
+ * Input can be one of:
+ * - a Date object
+ * - a string in the format '2019-05-23'
+ * - another LocalDate
+ * - an object with the keys `year`, `month` and `day` (values can be strings or numbers)
+ *
+ * @return {LocalDate}
+ */
 LocalDate.of = (date) => {
     if (date === null) {
         throw new Error('Cannot create a LocalDate from null');

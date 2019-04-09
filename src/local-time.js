@@ -132,6 +132,12 @@ LocalTime.prototype.compareTo = function(other) {
 };
 
 /**
+ * Input can be one of:
+ * - a Date object
+ * - a string in the format '09:30'
+ * - another LocalTime
+ * - an object with the keys `hours` and `minutes` (values can be strings or numbers)
+ *
  * @return {LocalTime}
  */
 LocalTime.of = function(value) {
