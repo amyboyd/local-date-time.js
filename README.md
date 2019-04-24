@@ -1,5 +1,7 @@
-local-date-time.js
-==================
+local-date-time
+===============
+
+To install: `npm install local-date-time` or `yarn install local-date-time`.
 
 Provides these classes and functions:
 
