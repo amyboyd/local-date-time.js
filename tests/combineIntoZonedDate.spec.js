@@ -26,9 +26,9 @@ describe('combineIntoZonedDate()', function() {
         expect(getZonedISOString()).to.equal('2019-05-23T13:00:00.000Z');
 
         timezoneMock.register('US/Eastern');
-        expect(getZonedISOString()).to.equal('2019-05-23T18:00:00.000Z');
+        expect(getZonedISOString()).to.equal('2019-05-23T17:00:00.000Z');
 
         timezoneMock.register('Brazil/East');
-        expect(getZonedISOString()).to.equal('2019-05-23T15:00:00.000Z');
+        expect(getZonedISOString()).to.equal('2019-05-23T16:00:00.000Z');
     });
 });
