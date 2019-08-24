@@ -53,6 +53,17 @@ describe('LocalDate', function() {
         expect(sunday.getPrettyDayOfWeek()).to.equal('Sunday');
     });
 
+    it('should have an getShortPrettyDayOfWeek method', function() {
+        const monday = new LocalDate('2016-09-05');
+        expect(monday.getShortPrettyDayOfWeek()).to.equal('Mon');
+
+        const wednesday = new LocalDate('2016-09-07');
+        expect(wednesday.getShortPrettyDayOfWeek()).to.equal('Wed');
+
+        const sunday = new LocalDate('2016-09-11');
+        expect(sunday.getShortPrettyDayOfWeek()).to.equal('Sun');
+    });
+
     it('should have a toString method', function() {
         const date = new LocalDate('2016-05-23');
         expect(date + '').to.equal('2016-05-23');

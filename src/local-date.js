@@ -61,6 +61,31 @@ LocalDate.prototype.getPrettyDayOfWeek = function() {
     return day.substr(0, 1) + day.substr(1).toLowerCase().replace(/_/g, ' ');
 };
 
+/**
+ * @return {String} For example 'Mon' or 'Tues'.
+ */
+LocalDate.prototype.getShortPrettyDayOfWeek = function() {
+    const day = this.getDayOfWeek();
+    switch (day) {
+        case 'MONDAY':
+            return 'Mon';
+        case 'TUESDAY':
+            return 'Tue';
+        case 'WEDNESDAY':
+            return 'Wed';
+        case 'THURSDAY':
+            return 'Thur';
+        case 'FRIDAY':
+            return 'Fri';
+        case 'SATURDAY':
+            return 'Sat';
+        case 'SUNDAY':
+            return 'Sun';
+        default:
+            throw new Error('Unsupported day: ' + day);
+    }
+};
+
 LocalDate.prototype.addDays = function(days) {
     return this.getNewModifiedByDays(days);
 };
